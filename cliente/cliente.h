@@ -10,6 +10,8 @@
 extern "C" {
 #endif
 
+#include <stdio.h>
+#include <stdlib.h>
 /* Diretivas de portabilidade... */
 #ifdef _WIN32
   #include <winsock.h>
@@ -23,6 +25,7 @@ extern "C" {
 
 #define PORTA_CONEXAO 16122
 #define STR_PORTA_CONEXAO "16122"
+#define TAM_MSG 1024
 
 /* ... */
 #ifdef _WIN32
@@ -32,8 +35,6 @@ extern void habilita_sockets(WSADATA *); /* Coisas do Windows... */
 extern int cria_socket(void); /* Cria um socket para efetuar ou receber uma conexão */
 
 extern int conecta_ip(int, char *); /* Efetua a conexão com o servidor */
-
-extern void associa_porta(int, int); /* Habilita uma porta para receber conexões */
 
 extern int envia_mensagem(int, char *); /* Envia os dados via socket */
 
